@@ -1,4 +1,4 @@
-/* */
+/* AIXO SON DOS FUNCIONS PER XIFRAR I DESXIFRAR TEXTS EN ROT13 */
 public class Rot13 {
     private static final char[] AbcMinisculas ="abcdefghijklmnopqrstuvwxyzàèéìíïòóùúüñç".toCharArray();
 
@@ -66,8 +66,8 @@ public class Rot13 {
         return textDesxifrat;
     }
     public static void main(String[] args) {
-        System.out.println("Ara xifrarem aquest text: RmrcaA.lçotó");
-        String text = "RmrcaA.lçotó";
+        System.out.println("Ara xifrarem aquest text: Hola, Mr. calçot");
+        String text = "Hola, Mr. calçot";
         System.out.println(xifraRot13(text));
         text = xifraRot13(text);
         System.out.println("Ara el desxifrarem");
