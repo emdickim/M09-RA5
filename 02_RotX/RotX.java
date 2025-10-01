@@ -1,5 +1,5 @@
 /* AIXO SON DOS FUNCIONS PER XIFRAR I DESXIFRAR TEXTS EN ROT13 */
-public class Rot13 {
+public class RotX {
     private static final char[] AbcMinisculas ="abcdefghijklmnopqrstuvwxyzàèéìíïòóùúüñç".toCharArray();
 
     private static final char[] AbcMayusculas ="ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÉÌÍÏÒÓÙÚÜÑÇ".toCharArray();
@@ -44,7 +44,7 @@ public class Rot13 {
                         if (j - desplaçament >= 0) {
                             textDesxifrat += AbcMinisculas[j - desplaçament] + "";
                         }  else {
-                            textDesxifrat += AbcMinisculas[AbcMinisculas.length % (desplaçament - j)] + "";
+                            textDesxifrat += AbcMinisculas[AbcMinisculas.length - (desplaçament - j)] + "";
                         }
                     }
                 } else if (Character.isUpperCase(text.charAt(i))) {
@@ -53,7 +53,7 @@ public class Rot13 {
                                 textDesxifrat += AbcMayusculas[j - desplaçament] + "";
                                 
                             } else {
-                            textDesxifrat += AbcMayusculas[AbcMayusculas.length % (desplaçament - j)] + "";
+                            textDesxifrat += AbcMayusculas[AbcMayusculas.length - (desplaçament - j)] + "";
                             }
                         }
                 } else {
@@ -77,7 +77,7 @@ public class Rot13 {
         System.out.println("Ara xifrarem aquest text: Hola, Mr. calçot");
         String text = "Hola, Mr. calçot";
         System.out.println(xifraRot13(text, 13));
-        text = xifraRot13(text, 13);
+        text = xifraRot13(text, 4);
         System.out.println("Ara el desxifrarem");
         System.out.println(desXifraRot13(text, 13));
         forçaBrutaRotX(text);
