@@ -77,7 +77,7 @@ public class RotX {
         System.out.println("Ara xifrarem aquest text: Hola, Mr. calçot");
         String text = "Hola, Mr. calçot";
         System.out.println(xifraRot13(text, 13));
-        text = xifraRot13(text, 4);
+        text = xifraRot13(text, 13);
         System.out.println("Ara el desxifrarem");
         System.out.println(desXifraRot13(text, 13));
         forçaBrutaRotX(text);
