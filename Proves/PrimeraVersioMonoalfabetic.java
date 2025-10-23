@@ -32,29 +32,63 @@ public class PrimeraVersioMonoalfabetic {
     
     public static String monoAlfa(String paraula) {
         String nuevaPutaPalabra = "";
-        System.out.println("aixo de abaix es l'original");
-        System.out.println(alfabetPermutat);
+        //System.out.println("aixo de abaix es l'original");
+       // System.out.println(paraula);
         for (int i = 0; i < paraula.length(); i++ ) {
             for (int j = 0; j < alfabetOriginal.length; j++) {
-                if (paraula.charAt(i) == alfabetOriginal[j]) {
-                    System.out.println(paraula.charAt(i) + "  " + i + "    " + alfabetOriginal[j] + " ES IGUAL A " + alfabetPermutat[j] + " EN LA POSICION " + j);
+                if (Character.toUpperCase(paraula.charAt(i)) == alfabetOriginal[j]) {
+                    //System.out.println(paraula.charAt(i) + "  " + i + "    " + alfabetOriginal[j] + " ES IGUAL A " + alfabetPermutat[j] + " EN LA POSICION " + j);
+                    //break;
+                    nuevaPutaPalabra += alfabetPermutat[j] + "";
+                }
+                if (!Character.isLetter(paraula.charAt(i))) {
+                    nuevaPutaPalabra += paraula.charAt(i);
                     break;
-                    //nuevaPutaPalabra += alfabetPermutat[j] + "";
                 }
                 
             }
         }
-       System.out.println(nuevaPutaPalabra + "XD");
+       //System.out.println(nuevaPutaPalabra + "XD");
         return nuevaPutaPalabra;
     }
     
-    public String desxifraAlfa(String paraula) {
-        return null;
+    public static String desxifraAlfa(String paraula) {
+
+        String paraulaDesxifrada = "";
+
+        for (int i = 0; i < paraula.length(); i++) {
+            for (int j = 0; j < alfabetPermutat.length; j++) {
+                if (paraula.charAt(i) == alfabetPermutat[j]) {
+                    paraulaDesxifrada += alfabetOriginal[j] + "";
+                }
+                if (!Character.isLetter(paraula.charAt(i))) {
+                    paraulaDesxifrada += paraula.charAt(i);
+                    break;
+                }
+            }
+        }
+
+
+        return paraulaDesxifrada;
     }
     public static void main(String[] args) {
         String[] frasesProves = {"ABC", "XYZ", "Hola, Mr. calçot", "Perdó, per tu què és?"};
-        monoAlfa("LOLXDJAHAHHAHAHAAHAHAHAHAHAHDGJSAHG");
-        String lol = monoAlfa("JAAAJAJAJAJAJAJAJJAJ");
-        System.out.println(lol);
+        String[] frasesXifrades = new String[frasesProves.length];
+        //monoAlfa("LOLXDJAHAHHAHAHAAHAHAHAHAHAHDGJSAHG");
+        for (int i = 0; i < frasesProves.length; i++) {
+            System.out.println("Paraula original: " + frasesProves[i]);
+            System.out.println("Paraula xifrada: " + monoAlfa(frasesProves[i]));
+            frasesXifrades[i] = monoAlfa(frasesProves[i]);
+        }
+        System.out.println();
+        for (int i = 0; i < frasesXifrades.length; i++) {
+            
+            System.out.println("Paraula xifrada: " + frasesXifrades[i]);
+            System.out.println("Paraula original desxifrada: " + desxifraAlfa(frasesXifrades[i]));
+        }
+
+
+        //String lol = monoAlfa("JAAAJAJAJAJAJAJAJJAJ");
+      //  System.out.println(lol);
     }
 }
